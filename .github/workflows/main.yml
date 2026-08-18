@@ -1,41 +1,35 @@
-name: Shorts Video Automation
+name: Fact Video Automation
 
-# Automation kab chalegi?
 on:
   schedule:
-    - cron: '0 4 * * *' # Har din subah 4:00 AM UTC (IST mein subah 9:30 AM) par chalega.
-  workflow_dispatch: # Isse aap GitHub mein manual 'Run workflow' button daba kar test kar payenge.
+    - cron: '0 4 * * *' 
+  workflow_dispatch: 
 
 jobs:
   generate-and-post-video:
     runs-on: ubuntu-latest
 
     steps:
-      # Step 1: Aapke GitHub repository ka code (main.py aur websites.txt) server par layega
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      # Step 2: Python environment setup karega
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.10'
 
-      # Step 3: Video mein Text (Captions) add karne ke liye ImageMagick install aur fix karega
       - name: Install System Dependencies (ImageMagick)
         run: |
           sudo apt-get update
           sudo apt-get install -y imagemagick
-          # Linux par ImageMagick ki default policy text rendering ko block karti hai, yeh line us policy ko disable karke error fix karti hai.
           sudo sed -i 's/<policy domain="path" rights="none" pattern="@\*"\/>/<!-- <policy domain="path" rights="none" pattern="@\*"\/> -->/g' /etc/ImageMagick-6/policy.xml
 
-      # Step 4: Aapke Python script ke liye zaroori libraries install karega
       - name: Install Python Dependencies
+        # Yahan duckduckgo-search add kiya gaya hai
         run: |
           python -m pip install --upgrade pip
-          pip install requests beautifulsoup4 gTTS moviepy==1.0.3
+          pip install requests gTTS moviepy==1.0.3 duckduckgo-search
 
-      # Step 5: Final Python script ko run karega aur Secrets pass karega
       - name: Run Automation Script
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
