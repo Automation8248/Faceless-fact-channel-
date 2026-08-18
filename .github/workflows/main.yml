@@ -2,8 +2,8 @@ name: Fact Video Automation
 
 on:
   schedule:
-    - cron: '0 4 * * *' 
-  workflow_dispatch: 
+    - cron: '0 4 * * *' # Daily subah 4:00 AM UTC par chalega
+  workflow_dispatch: # Manual run ke liye
 
 jobs:
   generate-and-post-video:
@@ -22,13 +22,14 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y imagemagick
+          # Fix for ImageMagick text rendering policy on Ubuntu
           sudo sed -i 's/<policy domain="path" rights="none" pattern="@\*"\/>/<!-- <policy domain="path" rights="none" pattern="@\*"\/> -->/g' /etc/ImageMagick-6/policy.xml
 
       - name: Install Python Dependencies
-        # Yahan duckduckgo-search add kiya gaya hai
+        # Yahan 'beautifulsoup4' add kar diya gaya hai bs4 error ko solve karne ke liye
         run: |
           python -m pip install --upgrade pip
-          pip install requests gTTS moviepy==1.0.3 duckduckgo-search
+          pip install requests beautifulsoup4 gTTS moviepy==1.0.3
 
       - name: Run Automation Script
         env:
