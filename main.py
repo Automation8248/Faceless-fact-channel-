@@ -27,7 +27,6 @@ def load_facts(filepath="facts.txt"):
 # --- IMAGE SEARCH FUNCTIONS ---
 
 def search_openverse(keyword):
-    """ Openverse Public API (Free & Open Source) """
     print(f"Trying Openverse for: {keyword}...")
     try:
         url = f"https://api.openverse.org/v1/images/?q={keyword}"
@@ -41,7 +40,6 @@ def search_openverse(keyword):
     return None
 
 def search_wikimedia(keyword):
-    """ Wikimedia Commons MediaWiki API (Free & Open Source) """
     print(f"Trying Wikimedia Commons for: {keyword}...")
     try:
         url = "https://commons.wikimedia.org/w/api.php"
@@ -62,15 +60,12 @@ def search_wikimedia(keyword):
     return None
 
 def search_pxhere(keyword):
-    """ PxHere HTML Scraping """
     print(f"Trying PxHere for: {keyword}...")
     try:
         url = f"https://pxhere.com/en/photos?q={keyword}"
         headers = {"User-Agent": "Mozilla/5.0"}
         response = requests.get(url, headers=headers, timeout=10)
         soup = BeautifulSoup(response.text, 'html.parser')
-        
-        # Finding the first image link
         img_tag = soup.find('img') 
         if img_tag and img_tag.get('src'):
             img_url = img_tag['src']
@@ -82,10 +77,8 @@ def search_pxhere(keyword):
     return None
 
 def get_local_fallback(filename):
-    """ Local Image Folder Fallback (Replacement for DeepImageSearch internet expectation) """
     print("All websites failed. Using Local Image fallback...")
-    local_dir = "local_images" # Aapko repo mein yeh folder banana hoga
-    
+    local_dir = "local_images" 
     if os.path.exists(local_dir):
         images = [f for f in os.listdir(local_dir) if f.endswith(('.jpg', '.png', '.jpeg'))]
         if images:
@@ -98,7 +91,6 @@ def get_local_fallback(filename):
     return False
 
 def try_download_image(keyword, filename):
-    """ Hierarchical approach: Openverse -> Wikimedia -> PxHere -> Local Fallback """
     img_url = search_openverse(keyword) or search_wikimedia(keyword) or search_pxhere(keyword)
     
     if img_url:
@@ -113,7 +105,6 @@ def try_download_image(keyword, filename):
         except Exception as e:
             print(f"Error downloading image file: {e}")
             
-    # Agar link nahi mila ya download fail hua
     return get_local_fallback(filename)
 
 # --- TELEGRAM & WEBHOOK ---
@@ -166,7 +157,8 @@ def main():
         img_clip = ImageClip(img_path).set_duration(duration)
         img_clip = img_clip.resize(height=h).crop(x_center=img_clip.w/2, y_center=img_clip.h/2, width=w, height=h)
         
-        txt_clip = TextClip(fact['text'], fontsize=60, color='white',
+        # FIX IS HERE: strictly utilizing the downloaded font file.
+        txt_clip = TextClip(fact['text'], fontsize=60, color='white', font='./Roboto-Bold.ttf', 
                             bg_color='rgba(0,0,0,0.6)', size=(900, None), method='caption')
         txt_clip = txt_clip.set_position(('center', 1100)).set_duration(duration)
         
