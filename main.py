@@ -166,7 +166,7 @@ def main():
         img_clip = ImageClip(img_path).set_duration(duration)
         img_clip = img_clip.resize(height=h).crop(x_center=img_clip.w/2, y_center=img_clip.h/2, width=w, height=h)
         
-        txt_clip = TextClip(fact['text'], fontsize=60, color='white', font='DejaVu-Sans-Bold', 
+        txt_clip = TextClip(fact['text'], fontsize=60, color='white',
                             bg_color='rgba(0,0,0,0.6)', size=(900, None), method='caption')
         txt_clip = txt_clip.set_position(('center', 1100)).set_duration(duration)
         
