@@ -32,9 +32,9 @@ jobs:
 
       - name: Download Custom Font
         run: |
-          # Yeh step ek solid font file download karega taaki 0-pixel array error kabhi na aaye
-          wget https://github.com/google/fonts/raw/main/apache/roboto/Roboto-Bold.ttf -O Roboto-Bold.ttf
-
+          # Updated working link for Roboto-Bold
+          wget https://github.com/google/fonts/raw/main/ofl/roboto/Roboto-Bold.ttf -O Roboto-Bold.ttf
+          
       - name: Run Automation Script
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
