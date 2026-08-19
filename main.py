@@ -12,6 +12,7 @@ TELEGRAM_CHAT_ID = os.environ.get('TELEGRAM_CHAT_ID')
 WEBHOOK_URL = os.environ.get('WEBHOOK_URL')
 
 def load_facts(filepath="facts.txt"):
+    """ facts.txt file se facts aur keywords read karta hai """
     facts_list = []
     try:
         with open(filepath, "r", encoding="utf-8") as f:
@@ -91,6 +92,7 @@ def get_local_fallback(filename):
     return False
 
 def try_download_image(keyword, filename):
+    """ Hierarchical check: Openverse -> Wikimedia -> PxHere -> Local Folder """
     img_url = search_openverse(keyword) or search_wikimedia(keyword) or search_pxhere(keyword)
     
     if img_url:
@@ -115,11 +117,16 @@ def send_to_telegram(video_path):
     with open(video_path, 'rb') as video:
         files = {'video': video}
         data = {'chat_id': TELEGRAM_CHAT_ID, 'caption': "🌟 Top 3 Facts of the Day! #Shorts"}
-        requests.post(url, files=files, data=data)
+        response = requests.post(url, files=files, data=data)
+        if response.status_code == 200:
+            print("✅ Successfully sent to Telegram!")
+        else:
+            print(f"❌ Failed to send to Telegram: {response.text}")
 
 def send_to_webhook(facts_data):
     if WEBHOOK_URL:
         requests.post(WEBHOOK_URL, json={"status": "success", "facts": facts_data})
+        print("✅ Sent to webhook.")
 
 # --- MAIN EXECUTION ---
 
@@ -157,19 +164,24 @@ def main():
         img_clip = ImageClip(img_path).set_duration(duration)
         img_clip = img_clip.resize(height=h).crop(x_center=img_clip.w/2, y_center=img_clip.h/2, width=w, height=h)
         
-        # FIX IS HERE: strictly utilizing the downloaded font file.
-        txt_clip = TextClip(fact['text'], fontsize=60, color='white', font='./Roboto-Bold.ttf', 
+        # --- FIX APPLIED HERE ---
+        # Ab system ka exact pre-installed font use ho raha hai
+        font_path = '/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf'
+        
+        txt_clip = TextClip(fact['text'], fontsize=60, color='white', font=font_path, 
                             bg_color='rgba(0,0,0,0.6)', size=(900, None), method='caption')
         txt_clip = txt_clip.set_position(('center', 1100)).set_duration(duration)
         
         fact_clip = CompositeVideoClip([img_clip, txt_clip]).set_audio(audio)
         
+        # Timeline and Motion Logic
         if index == 0:
             fact_clip = fact_clip.set_start(current_start_time)
             current_start_time += fact_clip.duration
         else:
             current_start_time -= transition_duration 
             fact_clip = fact_clip.set_start(current_start_time)
+            
             trans_type = random.choice(['slide_left', 'slide_right', 'fade'])
             if trans_type == 'slide_left':
                 fact_clip = fact_clip.set_position(lambda t: (int(w - (w/transition_duration)*t) if t < transition_duration else 'center', 'center'))
@@ -177,6 +189,7 @@ def main():
                 fact_clip = fact_clip.set_position(lambda t: (int(-w + (w/transition_duration)*t) if t < transition_duration else 'center', 'center'))
             elif trans_type == 'fade':
                 fact_clip = fact_clip.crossfadein(transition_duration)
+                
             current_start_time += fact_clip.duration
             
         final_clips.append(fact_clip)
