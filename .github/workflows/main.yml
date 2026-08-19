@@ -18,23 +18,20 @@ jobs:
         with:
           python-version: '3.10'
 
-      - name: Install System Dependencies (ImageMagick)
+      - name: Install System Dependencies (ImageMagick & Fonts)
         run: |
           sudo apt-get update
-          sudo apt-get install -y imagemagick
+          # Yahan hum server par directly basic fonts (DejaVu) install kar rahe hain
+          sudo apt-get install -y imagemagick fonts-liberation fonts-dejavu-core
           # Fix for ImageMagick text rendering policy on Ubuntu
           sudo sed -i 's/<policy domain="path" rights="none" pattern="@\*"\/>/<!-- <policy domain="path" rights="none" pattern="@\*"\/> -->/g' /etc/ImageMagick-6/policy.xml
 
       - name: Install Python Dependencies
         run: |
           python -m pip install --upgrade pip
+          # Pillow==9.5.0 and beautifulsoup4 are included here
           pip install requests beautifulsoup4 gTTS moviepy==1.0.3 Pillow==9.5.0
 
-      - name: Download Custom Font
-        run: |
-          # Updated working link for Roboto-Bold
-          wget https://github.com/google/fonts/raw/main/ofl/roboto/Roboto-Bold.ttf -O Roboto-Bold.ttf
-          
       - name: Run Automation Script
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
