@@ -6,13 +6,13 @@ from bs4 import BeautifulSoup
 from gtts import gTTS
 from moviepy.editor import ImageClip, AudioFileClip, TextClip, CompositeVideoClip
 
-# GitHub Secrets
+# GitHub Secrets (Environment Variables)
 TELEGRAM_BOT_TOKEN = os.environ.get('TELEGRAM_BOT_TOKEN')
 TELEGRAM_CHAT_ID = os.environ.get('TELEGRAM_CHAT_ID')
 WEBHOOK_URL = os.environ.get('WEBHOOK_URL')
 
 def load_facts(filepath="facts.txt"):
-    """ facts.txt file se facts aur keywords read karta hai """
+    """ facts.txt file se facts aur unke search keywords read karta hai """
     facts_list = []
     try:
         with open(filepath, "r", encoding="utf-8") as f:
@@ -22,10 +22,10 @@ def load_facts(filepath="facts.txt"):
                     facts_list.append({"text": fact.strip(), "keyword": keyword.strip()})
         return facts_list
     except FileNotFoundError:
-        print(f"Error: {filepath} not found!")
+        print(f"Error: {filepath} not found! Please create facts.txt in the main folder.")
         return []
 
-# --- IMAGE SEARCH FUNCTIONS ---
+# --- IMAGE SEARCH & DOWNLOAD FUNCTIONS ---
 
 def search_openverse(keyword):
     print(f"Trying Openverse for: {keyword}...")
@@ -92,7 +92,7 @@ def get_local_fallback(filename):
     return False
 
 def try_download_image(keyword, filename):
-    """ Hierarchical check: Openverse -> Wikimedia -> PxHere -> Local Folder """
+    """ Hierarchical check: Openverse -> Wikimedia -> PxHere -> Local Folder Fallback """
     img_url = search_openverse(keyword) or search_wikimedia(keyword) or search_pxhere(keyword)
     
     if img_url:
@@ -125,56 +125,66 @@ def send_to_telegram(video_path):
 
 def send_to_webhook(facts_data):
     if WEBHOOK_URL:
-        requests.post(WEBHOOK_URL, json={"status": "success", "facts": facts_data})
-        print("✅ Sent to webhook.")
+        response = requests.post(WEBHOOK_URL, json={"status": "success", "facts": facts_data})
+        if response.status_code == 200:
+            print("✅ Trigger successfully sent to webhook.")
 
-# --- MAIN EXECUTION ---
+# --- MAIN AUTOMATION LOGIC ---
 
 def main():
     if not all([TELEGRAM_BOT_TOKEN, TELEGRAM_CHAT_ID]):
-        print("Error: Missing Telegram Environment Variables!")
+        print("Error: Missing Telegram Environment Variables in GitHub Secrets!")
         return
 
     all_facts = load_facts("facts.txt")
     if len(all_facts) < 3:
-        print("Need at least 3 facts in facts.txt.")
+        print("Need at least 3 facts in facts.txt to create a Shorts video.")
         return
         
+    # Randomly select 3 facts for this video
     selected_facts = random.sample(all_facts, 3)
 
     final_clips = []
     current_start_time = 0
     w, h = 1080, 1920
-    transition_duration = 0.4 
+    transition_duration = 0.4 # Motion effect duration in seconds
 
     for index, fact in enumerate(selected_facts):
         print(f"\n--- Processing Fact {index + 1}: {fact['keyword']} ---")
         audio_path, img_path = f"audio_{index}.mp3", f"image_{index}.jpg"
         
+        # 1. Text-to-Speech (gTTS)
         gTTS(text=fact['text'], lang='en', slow=False).save(audio_path)
         
+        # 2. Search and Download Image
         success = try_download_image(fact['keyword'], img_path)
         if not success:
             print("Skipping fact. Image mechanism completely failed.")
             continue
             
+        # 3. Create Video Clip from Image and Audio
         audio = AudioFileClip(audio_path)
         duration = audio.duration
         
         img_clip = ImageClip(img_path).set_duration(duration)
+        # Center-crop to 9:16 aspect ratio
         img_clip = img_clip.resize(height=h).crop(x_center=img_clip.w/2, y_center=img_clip.h/2, width=w, height=h)
         
-        # --- FIX APPLIED HERE ---
-        # Ab system ka exact pre-installed font use ho raha hai
+        # --- CRITICAL FIX APPLIED HERE ---
+        # 1. System ka direct font path use kar rahe hain taaki 404 font error na aaye
         font_path = '/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf'
         
+        # 2. rgba() background hata diya gaya hai taaki 0-size array render crash na ho.
+        # Uski jagah black outline (stroke) lagaya gaya hai.
         txt_clip = TextClip(fact['text'], fontsize=60, color='white', font=font_path, 
-                            bg_color='rgba(0,0,0,0.6)', size=(900, None), method='caption')
+                            stroke_color='black', stroke_width=2.5, size=(900, None), method='caption')
+        
         txt_clip = txt_clip.set_position(('center', 1100)).set_duration(duration)
         
+        # Merge Image, Text and Audio
         fact_clip = CompositeVideoClip([img_clip, txt_clip]).set_audio(audio)
         
-        # Timeline and Motion Logic
+        # 4. Apply Timeline & Slide/Fade Motions
         if index == 0:
             fact_clip = fact_clip.set_start(current_start_time)
             current_start_time += fact_clip.duration
@@ -195,16 +205,27 @@ def main():
         final_clips.append(fact_clip)
         
     if not final_clips:
-        print("No clips generated.")
+        print("No clips generated. Exiting.")
         return
 
-    print("\nRendering final video...")
+    # 5. Render Final Video
+    print("\nRendering final video (This may take 3-5 minutes depending on GitHub Server load)...")
     final_video = CompositeVideoClip(final_clips, size=(w, h))
     output_filename = "final_shorts_video.mp4"
+    
+    # 24 FPS with standard libx264 codec for Telegram/YouTube
     final_video.write_videofile(output_filename, fps=24, codec="libx264", audio_codec="aac")
     
+    # 6. Distribute Content
     send_to_telegram(output_filename)
     send_to_webhook(selected_facts)
+    
+    # 7. Cleanup temp files
+    print("\nCleaning up temporary files...")
+    for i in range(3):
+        if os.path.exists(f"audio_{i}.mp3"): os.remove(f"audio_{i}.mp3")
+        if os.path.exists(f"image_{i}.jpg"): os.remove(f"image_{i}.jpg")
+    print("✨ Automation Complete!")
 
 if __name__ == "__main__":
     main()
