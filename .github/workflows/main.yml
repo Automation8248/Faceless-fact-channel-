@@ -26,18 +26,15 @@ jobs:
           sudo sed -i 's/<policy domain="path" rights="none" pattern="@\*"\/>/<!-- <policy domain="path" rights="none" pattern="@\*"\/> -->/g' /etc/ImageMagick-6/policy.xml
 
       - name: Install Python Dependencies
-        # Yahan humne Pillow==9.5.0 add kar diya hai
         run: |
           python -m pip install --upgrade pip
           pip install requests beautifulsoup4 gTTS moviepy==1.0.3 Pillow==9.5.0
-      - name: Install System Dependencies (ImageMagick)
+
+      - name: Download Custom Font
         run: |
-          sudo apt-get update
-          # Yahan humne imagemagick ke saath basic fonts bhi install kiye hain
-          sudo apt-get install -y imagemagick fonts-liberation fonts-dejavu-core
-          # ImageMagick text policy fix
-          sudo sed -i 's/<policy domain="path" rights="none" pattern="@\*"\/>/<!-- <policy domain="path" rights="none" pattern="@\*"\/> -->/g' /etc/ImageMagick-6/policy.xml    
-          
+          # Yeh step ek solid font file download karega taaki 0-pixel array error kabhi na aaye
+          wget https://github.com/google/fonts/raw/main/apache/roboto/Roboto-Bold.ttf -O Roboto-Bold.ttf
+
       - name: Run Automation Script
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
