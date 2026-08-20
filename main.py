@@ -12,7 +12,7 @@ import edge_tts
 from PIL import Image, ImageDraw, ImageFont
 from moviepy.editor import ImageClip, AudioFileClip, CompositeVideoClip, CompositeAudioClip, ColorClip
 
-# --- Updated Environment Variables ---
+# --- Environment Variables ---
 TELEGRAM_SUCCESS_BOT_TOKEN = os.environ.get('TELEGRAM_SUCCESS_BOT_TOKEN')
 TELEGRAM_ERROR_BOT_TOKEN = os.environ.get('TELEGRAM_ERROR_BOT_TOKEN')
 TELEGRAM_CHAT_ID = os.environ.get('TELEGRAM_CHAT_ID')
@@ -26,7 +26,6 @@ def load_state(filepath="state.json"):
     if os.path.exists(filepath):
         with open(filepath, "r", encoding="utf-8") as f:
             state = json.load(f)
-            # Backward compatibility agar purana state ho
             if "used_metadata" not in state:
                 state["used_metadata"] = {}
             return state
@@ -53,13 +52,10 @@ def get_usable_facts(state, filepath="facts.txt"):
 
 # --- METADATA LOGIC WITH 30 DAYS COOLING PERIOD ---
 def get_random_metadata_with_cooling(filepath, category, state, default_text, cooling_days=30):
-    """ Reads lines from a file, filters out recently used ones, returns a random fresh one """
     if category not in state["used_metadata"]:
         state["used_metadata"][category] = {}
         
     os.makedirs(os.path.dirname(filepath), exist_ok=True)
-    
-    # Create file with default text if it doesn't exist
     if not os.path.exists(filepath):
         with open(filepath, "w", encoding="utf-8") as f:
             f.write(default_text + "\n")
@@ -73,17 +69,15 @@ def get_random_metadata_with_cooling(filepath, category, state, default_text, co
     for line in lines:
         if line in state["used_metadata"][category]:
             last_used = datetime.fromisoformat(state["used_metadata"][category][line])
-            if (now - last_used).days < cooling_days: # 30 DAYS COOLING FOR TITLE/HASHTAGS
+            if (now - last_used).days < cooling_days: # 30 DAYS COOLING
                 continue
         usable_lines.append(line)
         
-    # Agar saari lines 30-day cooling mein hain, toh default text use karega
     if not usable_lines:
         chosen = default_text
     else:
         chosen = random.choice(usable_lines)
         
-    # Update State for 30-day cooling
     state["used_metadata"][category][chosen] = now.isoformat()
     return chosen
 
@@ -93,13 +87,44 @@ async def generate_voiceover(text, filename, voice_type):
     communicate = edge_tts.Communicate(text, voice, rate="+5%")
     await communicate.save(filename)
 
-# --- IMAGE FETCHING & LOCAL FOLDER MANAGEMENT ---
-def search_searxng(keyword):
+# --- IMAGE FETCHING & LOCAL FOLDER MANAGEMENT (Ultra Bulletproof) ---
+def search_online_images(keyword):
+    """ Tries Openverse -> SearXNG -> PxHere -> Wikimedia """
+    headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)'}
+    
+    try:
+        r = requests.get(f"https://api.openverse.org/v1/images/?q={keyword}", timeout=10)
+        if r.status_code == 200 and r.json().get('results'):
+            return r.json()['results'][0]['url']
+    except: pass
+    
     try:
         r = requests.get(f"https://searx.be/search?q={keyword}&categories=images&format=json", timeout=10)
         if r.status_code == 200 and r.json().get('results'):
             return r.json()['results'][0]['img_src']
     except: pass
+
+    try:
+        url = f"https://pxhere.com/en/photos?q={keyword}"
+        response = requests.get(url, headers=headers, timeout=10)
+        soup = BeautifulSoup(response.text, 'html.parser')
+        img_tag = soup.find('img') 
+        if img_tag and img_tag.get('src'):
+            img_url = img_tag['src']
+            if img_url.startswith('//'):
+                img_url = "https:" + img_url
+            return img_url
+    except: pass
+
+    try:
+        params = {"action": "query", "format": "json", "generator": "search", "gsrsearch": f"{keyword} type:bitmap", "gsrnamespace": 6, "gsrlimit": 1, "prop": "imageinfo", "iiprop": "url"}
+        r = requests.get("https://commons.wikimedia.org/w/api.php", params=params, timeout=10, headers=headers)
+        pages = r.json().get("query", {}).get("pages", {})
+        for page_id in pages:
+            info = pages[page_id].get("imageinfo", [])
+            if info: return info[0]["url"]
+    except: pass
+    
     return None
 
 def get_categorized_image(keyword, filename):
@@ -107,21 +132,35 @@ def get_categorized_image(keyword, filename):
     os.makedirs(cat_folder, exist_ok=True)
     existing_files = [f for f in os.listdir(cat_folder) if f.endswith(('.jpg', '.png'))]
     
-    img_url = search_searxng(keyword)
+    img_url = search_online_images(keyword)
     save_path = os.path.join(cat_folder, filename)
     
+    # Category Limit (Max 15)
     if img_url and len(existing_files) < 15:
         try:
-            r = requests.get(img_url, timeout=10)
+            r = requests.get(img_url, timeout=10, headers={'User-Agent': 'Mozilla/5.0'})
             if r.status_code == 200:
                 with open(save_path, 'wb') as f: f.write(r.content)
                 return save_path
         except: pass
         
+    # Local Fallback 1: Specific Category Folder
     if existing_files:
         chosen = random.choice(existing_files)
         shutil.copy(os.path.join(cat_folder, chosen), save_path)
+        print(f"Used specific category fallback for {keyword}")
         return save_path
+        
+    # Local Fallback 2: Master Backup (Brahmasastra)
+    backup_folder = "master_backup_images"
+    os.makedirs(backup_folder, exist_ok=True)
+    backup_files = [f for f in os.listdir(backup_folder) if f.endswith(('.jpg', '.png'))]
+    if backup_files:
+        chosen = random.choice(backup_files)
+        shutil.copy(os.path.join(backup_folder, chosen), save_path)
+        print(f"⚠️ Used MASTER BACKUP image for {keyword}")
+        return save_path
+        
     return None
 
 # --- BACKGROUND MUSIC ---
@@ -263,6 +302,7 @@ async def async_main():
             else:
                 final_audio = voice_clip
                 
+            # Image Logic 1:1 Size
             img_clip = ImageClip(img_path).set_duration(duration)
             min_dim = min(img_clip.w, img_clip.h)
             img_clip = img_clip.crop(x_center=img_clip.w/2, y_center=img_clip.h/2, width=min_dim, height=min_dim).resize(width=1000, height=1000)
@@ -272,6 +312,7 @@ async def async_main():
             caption_clips = create_caption_clips(fact['text'], duration)
             fact_clip = CompositeVideoClip([fact_bg_clip] + caption_clips).set_audio(final_audio)
             
+            # Transitions Logic
             if index == 0:
                 fact_clip = fact_clip.set_start(current_start_time)
                 current_start_time += fact_clip.duration
