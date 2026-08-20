@@ -5,7 +5,6 @@ on:
     - cron: '0 4 * * *'
   workflow_dispatch:
 
-# YAHAN PERMISSIONS ADD KI GAYI HAIN PUSH KARNE KE LIYE
 permissions:
   contents: write
 
@@ -32,19 +31,21 @@ jobs:
       - name: Install Python Dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install requests beautifulsoup4 gTTS moviepy==1.0.3 Pillow==9.5.0 numpy
+          pip install requests beautifulsoup4 edge-tts moviepy==1.0.3 Pillow==9.5.0 numpy
 
       - name: Run Automation Script
         env:
-          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          # Naye names here - Two different tokens, one Chat ID
+          TELEGRAM_SUCCESS_BOT_TOKEN: ${{ secrets.TELEGRAM_SUCCESS_BOT_TOKEN }}
+          TELEGRAM_ERROR_BOT_TOKEN: ${{ secrets.TELEGRAM_ERROR_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
           WEBHOOK_URL: ${{ secrets.WEBHOOK_URL }}
         run: python main.py
 
-      - name: Commit and Push Database (Cooling Period & Images)
+      - name: Commit and Push Database (Metadata & Local Files)
         run: |
           git config --global user.name 'GitHub Actions Bot'
           git config --global user.email 'actions@github.com'
-          git add used_facts.json downloaded_images/ || echo "No new files to add"
-          git commit -m "chore: Update fact cooling DB and categorize images" || echo "No changes to commit"
+          git add state.json downloaded_images/ local_bgm/ metadata/ || echo "No new files"
+          git commit -m "chore: Update bot state, metadata and local assets" || echo "No changes to commit"
           git push
