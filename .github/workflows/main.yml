@@ -2,8 +2,12 @@ name: Fact Video Automation
 
 on:
   schedule:
-    - cron: '0 4 * * *' # Daily subah 4:00 AM UTC par chalega
-  workflow_dispatch: # Manual run ke liye
+    - cron: '0 4 * * *'
+  workflow_dispatch:
+
+# YAHAN PERMISSIONS ADD KI GAYI HAIN PUSH KARNE KE LIYE
+permissions:
+  contents: write
 
 jobs:
   generate-and-post-video:
@@ -12,25 +16,23 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.10'
 
-      - name: Install System Dependencies (ImageMagick & Fonts)
+      - name: Install System Dependencies (Fonts)
         run: |
           sudo apt-get update
-          # Yahan hum server par directly basic fonts (DejaVu) install kar rahe hain
-          sudo apt-get install -y imagemagick fonts-liberation fonts-dejavu-core
-          # Fix for ImageMagick text rendering policy on Ubuntu
-          sudo sed -i 's/<policy domain="path" rights="none" pattern="@\*"\/>/<!-- <policy domain="path" rights="none" pattern="@\*"\/> -->/g' /etc/ImageMagick-6/policy.xml
+          sudo apt-get install -y fonts-liberation fonts-dejavu-core
 
       - name: Install Python Dependencies
         run: |
           python -m pip install --upgrade pip
-          # Pillow==9.5.0 and beautifulsoup4 are included here
-          pip install requests beautifulsoup4 gTTS moviepy==1.0.3 Pillow==9.5.0
+          pip install requests beautifulsoup4 gTTS moviepy==1.0.3 Pillow==9.5.0 numpy
 
       - name: Run Automation Script
         env:
@@ -38,3 +40,11 @@ jobs:
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
           WEBHOOK_URL: ${{ secrets.WEBHOOK_URL }}
         run: python main.py
+
+      - name: Commit and Push Database (Cooling Period & Images)
+        run: |
+          git config --global user.name 'GitHub Actions Bot'
+          git config --global user.email 'actions@github.com'
+          git add used_facts.json downloaded_images/ || echo "No new files to add"
+          git commit -m "chore: Update fact cooling DB and categorize images" || echo "No changes to commit"
+          git push
