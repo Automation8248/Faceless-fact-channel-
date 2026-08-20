@@ -21,12 +21,16 @@ WEBHOOK_URL = os.environ.get('WEBHOOK_URL')
 AUTOMATION_NAME = "Premium Fact Shorts Auto-Gen"
 SOCIAL_MEDIA_NAME = "Facebook, Instagram, YouTube"
 
-# --- STATE MANAGEMENT (Cooling 1 Year) ---
+# --- STATE MANAGEMENT (Cooling System for Facts & Metadata) ---
 def load_state(filepath="state.json"):
     if os.path.exists(filepath):
         with open(filepath, "r", encoding="utf-8") as f:
-            return json.load(f)
-    return {"used_facts": {}, "last_voice": "female"}
+            state = json.load(f)
+            # Backward compatibility agar purana state ho
+            if "used_metadata" not in state:
+                state["used_metadata"] = {}
+            return state
+    return {"used_facts": {}, "last_voice": "female", "used_metadata": {}}
 
 def save_state(state, filepath="state.json"):
     with open(filepath, "w", encoding="utf-8") as f:
@@ -42,10 +46,46 @@ def get_usable_facts(state, filepath="facts.txt"):
                 fact, keyword = fact.strip(), keyword.strip()
                 if fact in state["used_facts"]:
                     last_used = datetime.fromisoformat(state["used_facts"][fact])
-                    if (now - last_used).days < 365: # 1 YEAR COOLING
+                    if (now - last_used).days < 365: # 1 YEAR COOLING FOR FACTS
                         continue
                 usable_facts.append({"text": fact, "keyword": keyword})
     return usable_facts
+
+# --- METADATA LOGIC WITH 30 DAYS COOLING PERIOD ---
+def get_random_metadata_with_cooling(filepath, category, state, default_text, cooling_days=30):
+    """ Reads lines from a file, filters out recently used ones, returns a random fresh one """
+    if category not in state["used_metadata"]:
+        state["used_metadata"][category] = {}
+        
+    os.makedirs(os.path.dirname(filepath), exist_ok=True)
+    
+    # Create file with default text if it doesn't exist
+    if not os.path.exists(filepath):
+        with open(filepath, "w", encoding="utf-8") as f:
+            f.write(default_text + "\n")
+            
+    now = datetime.now()
+    usable_lines = []
+    
+    with open(filepath, "r", encoding="utf-8") as f:
+        lines = [line.strip() for line in f if line.strip()]
+        
+    for line in lines:
+        if line in state["used_metadata"][category]:
+            last_used = datetime.fromisoformat(state["used_metadata"][category][line])
+            if (now - last_used).days < cooling_days: # 30 DAYS COOLING FOR TITLE/HASHTAGS
+                continue
+        usable_lines.append(line)
+        
+    # Agar saari lines 30-day cooling mein hain, toh default text use karega
+    if not usable_lines:
+        chosen = default_text
+    else:
+        chosen = random.choice(usable_lines)
+        
+    # Update State for 30-day cooling
+    state["used_metadata"][category][chosen] = now.isoformat()
+    return chosen
 
 # --- NATURAL AI VOICE (Edge-TTS) ---
 async def generate_voiceover(text, filename, voice_type):
@@ -137,21 +177,6 @@ def create_caption_clips(text, duration, max_width=900):
         
     return clips
 
-# --- METADATA FOLDER LOGIC (Title & Hashtags) ---
-def get_random_text_from_folder(folder_path, default_text="Awesome Facts!"):
-    os.makedirs(folder_path, exist_ok=True)
-    files = [f for f in os.listdir(folder_path) if f.endswith('.txt')]
-    
-    if not files:
-        dummy_path = os.path.join(folder_path, "default.txt")
-        with open(dummy_path, "w", encoding="utf-8") as f:
-            f.write(default_text)
-        return default_text
-
-    chosen = random.choice(files)
-    with open(os.path.join(folder_path, chosen), "r", encoding="utf-8") as f:
-        return f.read().strip()
-
 # --- MULTI-SERVER UPLOAD LOGIC ---
 def get_headers():
     return {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)'}
@@ -188,7 +213,7 @@ def upload_video_to_servers(video_path):
             
     raise Exception("All video upload servers failed!")
 
-# --- DUAL TELEGRAM NOTIFICATION SYSTEM (Updated) ---
+# --- DUAL TELEGRAM NOTIFICATION SYSTEM ---
 def send_telegram_success(video_url):
     if not TELEGRAM_CHAT_ID or not TELEGRAM_SUCCESS_BOT_TOKEN: return
     text = f"✅ **SUCCESSFUL AUTOMATION**\n\n🤖 **Automation:** {AUTOMATION_NAME}\n📱 **Social Media:** {SOCIAL_MEDIA_NAME}\n\n🎬 **Video URL:** {video_url}\n🎉 Status: Ready for Webhook processing!"
@@ -273,14 +298,14 @@ async def async_main():
             output_file = "final_shorts.mp4"
             final_video.write_videofile(output_file, fps=24, codec="libx264", audio_codec="aac")
             
-            # Upload Video to External Servers
+            # Upload Video
             uploaded_video_url = upload_video_to_servers(output_file)
             
-            # Metadata Fetching
-            title = get_random_text_from_folder("metadata/titles", "Did you know this amazing fact? 🤯")
-            fb_tags = get_random_text_from_folder("metadata/hashtags/facebook", "#facts #facebook")
-            ig_tags = get_random_text_from_folder("metadata/hashtags/instagram", "#instafacts #reels")
-            yt_tags = get_random_text_from_folder("metadata/hashtags/youtube", "#shorts #youtubeshorts")
+            # Metadata Fetching with 30-Day Cooling
+            title = get_random_metadata_with_cooling("metadata/title.txt", "titles", state, "Did you know this amazing fact? 🤯", 30)
+            fb_tags = get_random_metadata_with_cooling("metadata/facebook.txt", "facebook", state, "#facts #facebook", 30)
+            ig_tags = get_random_metadata_with_cooling("metadata/instagram.txt", "instagram", state, "#instafacts #reels", 30)
+            yt_tags = get_random_metadata_with_cooling("metadata/youtube.txt", "youtube", state, "#shorts #youtubeshorts", 30)
             
             # Send to Webhook
             if WEBHOOK_URL:
@@ -292,12 +317,11 @@ async def async_main():
                 }
                 requests.post(WEBHOOK_URL, json=payload)
                 
-            # Send Success Alert to Telegram
+            # Success Alert
             send_telegram_success(uploaded_video_url)
             save_state(state)
             
     except Exception as e:
-        # Send Error Alert to Telegram
         error_details = traceback.format_exc()
         print(f"AUTOMATION CRASHED:\n{error_details}")
         send_telegram_error(str(e))
