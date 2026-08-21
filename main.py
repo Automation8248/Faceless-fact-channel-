@@ -217,40 +217,73 @@ def create_caption_clips(text, duration, max_width=900):
     return clips
 
 # --- MULTI-SERVER UPLOAD LOGIC ---
+# --- MULTI-SERVER UPLOAD LOGIC (UPDATED WITH 20 SERVERS) ---
 def get_headers():
     return {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)'}
 
 def upload_video_to_servers(video_path):
     filename = os.path.basename(video_path)
+    
+    # Har server ka apna upload API format hai
     servers = [
-        ("Catbox", lambda: requests.post("https://catbox.moe/user/api.php", data={'reqtype': 'fileupload'}, files={'fileToUpload': open(video_path, 'rb')}, headers=get_headers(), timeout=30)),
-        ("Litterbox", lambda: requests.post("https://litterbox.catbox.moe/resources/internals/api.php", data={'reqtype': 'fileupload', 'time': '72h'}, files={'fileToUpload': open(video_path, 'rb')}, headers=get_headers(), timeout=30)),
-        ("0x0.st", lambda: requests.post("https://0x0.st", files={'file': open(video_path, 'rb')}, headers=get_headers(), timeout=30)),
-        ("Transfer.sh", lambda: requests.put(f"https://transfer.sh/{filename}", data=open(video_path, 'rb'), headers=get_headers(), timeout=30)),
-        ("Uguu.se", lambda: requests.post("https://uguu.se/upload.php", files={'files[]': open(video_path, 'rb')}, headers=get_headers(), timeout=30)),
-        ("Tmpfiles.org", lambda: requests.post("https://tmpfiles.org/api/v1/upload", files={'file': open(video_path, 'rb')}, headers=get_headers(), timeout=30)),
-        ("Pomf.lain.la", lambda: requests.post("https://pomf.lain.la/upload.php", files={'files[]': open(video_path, 'rb')}, headers=get_headers(), timeout=30)),
-        ("File.io", lambda: requests.post("https://file.io", files={'file': open(video_path, 'rb')}, headers=get_headers(), timeout=30))
+        ("Catbox", lambda: requests.post("https://catbox.moe/user/api.php", data={'reqtype': 'fileupload'}, files={'fileToUpload': open(video_path, 'rb')}, headers=get_headers(), timeout=60)),
+        ("Litterbox", lambda: requests.post("https://litterbox.catbox.moe/resources/internals/api.php", data={'reqtype': 'fileupload', 'time': '72h'}, files={'fileToUpload': open(video_path, 'rb')}, headers=get_headers(), timeout=60)),
+        ("0x0.st", lambda: requests.post("https://0x0.st", files={'file': open(video_path, 'rb')}, headers=get_headers(), timeout=60)),
+        ("Uguu", lambda: requests.post("https://uguu.se/upload.php", files={'files[]': open(video_path, 'rb')}, headers=get_headers(), timeout=60)),
+        ("qu.ax", lambda: requests.post("https://qu.ax/upload.php", files={'files[]': open(video_path, 'rb')}, headers=get_headers(), timeout=60)),
+        ("Pixeldrain", lambda: requests.post("https://pixeldrain.com/api/file", files={'file': open(video_path, 'rb')}, headers=get_headers(), timeout=60)),
+        ("Fileditch", lambda: requests.post("https://up1.fileditch.com/upload.php", files={'files[]': open(video_path, 'rb')}, headers=get_headers(), timeout=60)),
+        ("Oshi.at", lambda: requests.post("https://oshi.at", files={'f': open(video_path, 'rb')}, headers=get_headers(), timeout=60)),
+        ("hostb.org", lambda: requests.post("https://hostb.org/api/upload", files={'file': open(video_path, 'rb')}, headers=get_headers(), timeout=60)),
+        ("Buzzheavier", lambda: requests.put(f"https://buzzheavier.com/{filename}", data=open(video_path, 'rb'), headers=get_headers(), timeout=60)),
+        ("FilePort", lambda: requests.post("https://fileport.io/upload.php", files={'files[]': open(video_path, 'rb')}, headers=get_headers(), timeout=60)),
+        ("FileShot", lambda: requests.post("https://fileshot.net/upload.php", files={'files[]': open(video_path, 'rb')}, headers=get_headers(), timeout=60)),
+        ("FileMirage", lambda: requests.post("https://filemirage.com/upload.php", files={'files[]': open(video_path, 'rb')}, headers=get_headers(), timeout=60)),
+        ("JuiceBox", lambda: requests.post("https://juicebox.cc/upload.php", files={'files[]': open(video_path, 'rb')}, headers=get_headers(), timeout=60)),
+        ("storage.to", lambda: requests.post("https://storage.to/api/upload", files={'file': open(video_path, 'rb')}, headers=get_headers(), timeout=60)),
+        ("UploadFiles.io", lambda: requests.post("https://upfast.io/upload", files={'file': open(video_path, 'rb')}, headers=get_headers(), timeout=60)),
+        ("Streamable", lambda: requests.post("https://api.streamable.com/upload", files={'file': open(video_path, 'rb')}, headers=get_headers(), timeout=60)),
+        ("Sendvid", lambda: requests.post("https://sendvid.com/api/upload", files={'file': open(video_path, 'rb')}, headers=get_headers(), timeout=60)),
+        ("Upload.ee", lambda: requests.post("https://www.upload.ee/cgi-bin/upload.cgi", files={'upfile_1': open(video_path, 'rb')}, headers=get_headers(), timeout=60)),
+        ("GoFile", lambda: requests.post("https://store1.gofile.io/uploadFile", files={'file': open(video_path, 'rb')}, headers=get_headers(), timeout=60))
     ]
     
     for name, uploader in servers:
         try:
             print(f"Uploading to {name}...")
             response = uploader()
+            
             if response.status_code in [200, 201]:
-                url = response.text.strip()
-                if 'file.io' in name.lower():
-                    url = response.json().get('link', url)
-                elif 'tmpfiles.org' in name.lower():
-                    raw_url = response.json().get('data', {}).get('url', '')
-                    url = raw_url.replace('tmpfiles.org/', 'tmpfiles.org/dl/') if raw_url else raw_url
-                print(f"✅ Successfully uploaded to {name}!")
-                return url
+                text_response = response.text.strip()
+                url = None
+                
+                # Smart Data Extractor (Alag-alag server ke alag format hote hain)
+                try:
+                    json_data = response.json()
+                    if 'files' in json_data and isinstance(json_data['files'], list) and len(json_data['files']) > 0:
+                        url = json_data['files'][0].get('url') # Uguu, qu.ax, Fileditch
+                    elif 'id' in json_data and name == "Pixeldrain":
+                        url = f"https://pixeldrain.com/u/{json_data['id']}"
+                    elif 'data' in json_data and 'downloadPage' in json_data['data']:
+                        url = json_data['data']['downloadPage'] # GoFile
+                    elif 'url' in json_data:
+                        url = json_data['url'] # Oshi, hostb
+                except:
+                    # Agar JSON nahi hai toh direct text link hoga (Catbox, 0x0)
+                    url = text_response
+                
+                # Verification Check (Galat data return hone se rokne ke liye)
+                if url and ("http://" in url or "https://" in url) and len(url) < 200:
+                    print(f"✅ Successfully uploaded to {name}!")
+                    return url
+                else:
+                    print(f"⚠️ {name} returned response, but couldn't extract valid URL. Trying next...")
+                    
         except Exception as e:
             print(f"❌ {name} upload failed: {e}")
             continue
             
-    raise Exception("All video upload servers failed!")
+    raise Exception("All 20 video upload servers failed! (Check Network or API limits)")
 
 # --- DUAL TELEGRAM NOTIFICATION SYSTEM ---
 def send_telegram_success(video_url):
