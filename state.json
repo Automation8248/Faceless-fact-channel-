@@ -2,21 +2,28 @@
     "used_facts": {
         "Octopuses have three hearts and blue blood.": "2026-08-20T14:46:10.705835",
         "A day on Venus is longer than a year on Venus.": "2026-08-20T14:46:11.912969",
-        "Bananas grow curved because they reach for the sunlight.": "2026-08-20T14:46:13.401378"
+        "Bananas grow curved because they reach for the sunlight.": "2026-08-20T14:46:13.401378",
+        "A camel's eyelashes help protect its eyes from blowing sand.": "2026-08-21T07:26:28.809866",
+        "Some clouds form in long horizontal bands.": "2026-08-21T07:26:30.251725",
+        "Dolphins can use echolocation to locate objects underwater.": "2026-08-21T07:26:31.875293"
     },
-    "last_voice": "male",
+    "last_voice": "female",
     "used_metadata": {
         "titles": {
-            "Did you know this amazing fact? \ud83e\udd2f": "2026-08-20T14:46:53.008163"
+            "Did you know this amazing fact? \ud83e\udd2f": "2026-08-20T14:46:53.008163",
+            "Mind blowing facts you never knew! \ud83c\udf0d": "2026-08-21T07:27:26.989788"
         },
         "facebook": {
-            "#sciencefacts #facebookvideo #learnontiktok #amazingfacts #worldfacts": "2026-08-20T14:46:53.008274"
+            "#sciencefacts #facebookvideo #learnontiktok #amazingfacts #worldfacts": "2026-08-20T14:46:53.008274",
+            "#facts #facebookreels #dailyfacts #knowledge #viral": "2026-08-21T07:27:26.989911"
         },
         "instagram": {
-            "#reelsinstagram #dailyknowledge #funfacts #factz #explore": "2026-08-20T14:46:53.008327"
+            "#reelsinstagram #dailyknowledge #funfacts #factz #explore": "2026-08-20T14:46:53.008327",
+            "#factoftheday #instagramreels #viralvideos #educational #fact": "2026-08-21T07:27:26.989964"
         },
         "youtube": {
-            "#viral #trending #youtube #factsdaily #mindblowing": "2026-08-20T14:46:53.008373"
+            "#viral #trending #youtube #factsdaily #mindblowing": "2026-08-20T14:46:53.008373",
+            "#shorts #youtubeshorts #factshorts #viralshorts #education": "2026-08-21T07:27:26.990010"
         }
     }
 }
