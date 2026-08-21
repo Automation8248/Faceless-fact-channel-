@@ -164,21 +164,41 @@ def get_categorized_image(keyword, filename):
     return None
 
 # --- BACKGROUND MUSIC ---
+# --- BACKGROUND MUSIC (100% Randomized & Self-Building Library) ---
 def get_bgm():
     os.makedirs("local_bgm", exist_ok=True)
     existing_bgm = [f for f in os.listdir("local_bgm") if f.endswith('.mp3')]
-    save_path = os.path.join("local_bgm", "bgm.mp3")
     
     try:
-        r = requests.get("https://api.openverse.org/v1/audio/?q=ambient&length=short", timeout=10)
+        # Har baar alag mood ka music search karega
+        keywords = ["ambient", "lofi", "chill", "documentary", "suspense"]
+        random_kw = random.choice(keywords)
+        
+        r = requests.get(f"https://api.openverse.org/v1/audio/?q={random_kw}&length=short", timeout=10)
         if r.status_code == 200 and r.json().get('results'):
-            audio_url = r.json()['results'][0]['url']
-            r_audio = requests.get(audio_url, timeout=10)
-            with open(save_path, 'wb') as f: f.write(r_audio.content)
-            return save_path
+            results = r.json()['results']
+            # Pehla result nahi, balki randomly koi ek track chuna jayega
+            random_track = random.choice(results)
+            audio_url = random_track['url']
+            
+            # File ko unique naam se save karega taki overwrite na ho
+            track_id = random_track.get('id', str(random.randint(1000, 9999)))
+            save_path = os.path.join("local_bgm", f"bgm_{track_id}.mp3")
+            
+            # Agar local folder mein 15 se kam music hain, toh naya download karega
+            if len(existing_bgm) < 15 and not os.path.exists(save_path):
+                r_audio = requests.get(audio_url, timeout=10)
+                if r_audio.status_code == 200:
+                    with open(save_path, 'wb') as f: f.write(r_audio.content)
+                    return save_path
     except: pass
     
-    if existing_bgm: return os.path.join("local_bgm", random.choice(existing_bgm))
+    # LOCAL FALLBACK: Agar internet fail ho ya 15 tracks pure ho jayein, toh saved folder se random music uthayega!
+    if existing_bgm: 
+        chosen_bgm = random.choice(existing_bgm)
+        print(f"Used local fallback BGM: {chosen_bgm}")
+        return os.path.join("local_bgm", chosen_bgm)
+        
     return None
 
 # --- DYNAMIC CAPTIONS ---
