@@ -211,7 +211,7 @@ def create_caption_clips(text, duration, max_width=900):
         img_np = np.array(img)
         txt_clip = ImageClip(img_np[:, :, :3]).set_duration(time_per_chunk)
         mask = ImageClip(img_np[:, :, 3] / 255.0, ismask=True).set_duration(time_per_chunk)
-        txt_clip = txt_clip.set_mask(mask).set_position(('center', 1150)).set_start(i * time_per_chunk)
+        txt_clip = txt_clip.set_mask(mask).set_position(('center', 1400)).set_start(i * time_per_chunk)
         clips.append(txt_clip)
         
     return clips
