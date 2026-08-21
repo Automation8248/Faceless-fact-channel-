@@ -1,5 +1,301 @@
-Octopuses have three hearts and blue blood. | octopus ocean
-Honey never spoils. Archaeologists have found pots of honey in ancient Egyptian tombs. | ancient egyptian honey
-Bananas grow curved because they reach for the sunlight. | banana tree
-A day on Venus is longer than a year on Venus. | planet venus space
-Cows have best friends and get stressed when separated. | happy cow field
+A group of flamingos is called a flamboyance. | flamingo
+Octopuses have three hearts. | octopus
+Elephants can recognize individual human voices. | elephant
+A hummingbird can beat its wings dozens of times per second. | hummingbird
+Tigers have striped skin as well as striped fur. | tiger
+Some clouds can contain hundreds of tons of water. | cloud
+Crows can remember human faces for years. | crow
+A blue whale's tongue can weigh as much as an elephant. | whale
+Giraffes have the same number of neck vertebrae as humans. | giraffe
+Some frogs can survive being partially frozen. | frog
+Jellyfish have existed for hundreds of millions of years. | jellyfish
+Cheetahs use their tails to help balance during sharp turns. | cheetah
+Honeybees can communicate the location of food through the waggle dance. | bee
+A mantis shrimp can strike with extraordinary acceleration. | mantis
+Polar bears have black skin beneath their pale fur. | polarbear
+Some sharks can detect electrical signals produced by other animals. | shark
+Butterfly wings are covered with thousands of microscopic scales. | butterfly
+Kangaroos use their tails as a powerful support while moving slowly. | kangaroo
+Lightning can heat surrounding air to temperatures hotter than the Sun's surface. | lightning
+Pandas have a sixth digit-like structure that helps them grip bamboo. | panda
+Dolphins can use echolocation to locate objects underwater. | dolphin
+Some ants can form living bridges using their own bodies. | ant
+A single elephant trunk contains tens of thousands of muscles. | elephant
+Sea turtles can use Earth's magnetic field for navigation. | turtle
+Some mushrooms produce light through bioluminescence. | mushroom
+A cheetah's spine flexes significantly during high-speed running. | cheetah
+Orcas can use different vocal patterns among different groups. | orca
+A camel's hump stores fat rather than liquid water. | camel
+Some snakes can detect infrared radiation from warm objects. | snake
+The human heart has four chambers. | heart
+A blue whale is the largest known animal ever to have lived. | whale
+Some spiders travel through the air using silk threads. | spider
+Koalas have fingerprints that can resemble human fingerprints. | koala
+A snowflake's crystal structure is based on sixfold symmetry. | snowflake
+Beavers can create wetlands by constructing dams. | beaver
+A shark's skeleton is made primarily of cartilage. | shark
+Some bats can consume thousands of insects during a single night. | bat
+Giant squid can have eyes larger than dinner plates. | squid
+A giraffe's heart must generate high blood pressure to supply its brain. | giraffe
+Volcanic eruptions can produce lightning. | volcano
+Some penguins can remain underwater for several minutes. | penguin
+An octopus can change its skin texture as well as its color. | octopus
+Lions can sleep for many hours during a day. | lion
+Rain can evaporate before reaching the ground. | rain
+Some fish can change sex during their lifetime. | fish
+Elephants can communicate through vibrations traveling through the ground. | elephant
+A spider's silk can be extremely strong relative to its weight. | spider
+Some butterflies migrate thousands of kilometers. | butterfly
+Crocodiles can replace lost teeth throughout their lives. | crocodile
+The human lungs contain millions of tiny air sacs. | lung
+Manta rays can have wingspans several meters wide. | manta
+Some desert plants remain dormant until rainfall arrives. | desert
+Horseshoe crabs have blue blood. | horseshoe
+A hummingbird can fly backward. | hummingbird
+Tigers are strong swimmers compared with many other big cats. | tiger
+The ocean contains underwater mountain ranges stretching for enormous distances. | ocean
+Some frogs absorb water directly through their skin. | frog
+A whale shark is the largest species of fish. | whale_shark
+Ant colonies can contain millions of individual ants in some species. | ant
+The human brain contains billions of neurons. | brain
+Some jellyfish can glow through bioluminescence. | jellyfish
+Cheetahs have semi-retractable claws that help provide traction. | cheetah
+A camel can tolerate substantial water loss before drinking again. | camel
+Some owls can rotate their heads remarkably far without cutting off blood flow. | owl
+Clouds can form when moist air cools enough for water vapor to condense. | cloud
+Pandas spend many hours each day eating bamboo. | panda
+A sea otter can use stones as tools to break open hard food. | otter
+Some lizards can detach their tails to escape predators. | lizard
+Elephants can remember distant water sources. | elephant
+A blue whale can produce extremely powerful low-frequency sounds. | whale
+Some flowers produce ultraviolet patterns that guide insects toward nectar. | flower
+Sharks have existed for hundreds of millions of years. | shark
+A kangaroo's young is called a joey. | kangaroo
+Some fungi form partnerships with plant roots. | fungus
+Penguins have feathers specially adapted for insulation and waterproofing. | penguin
+Lightning can occur inside volcanic ash clouds. | lightning
+Octopus arms contain a large portion of the animal's neurons. | octopus
+Giraffe calves can stand shortly after birth. | giraffe
+Some bats use echolocation to navigate through complete darkness. | bat
+A crocodile can remain motionless for long periods while waiting for prey. | crocodile
+Butterflies taste using receptors located on their feet. | butterfly
+Some whales migrate between polar feeding grounds and warmer breeding areas. | whale
+Ants communicate with chemical signals called pheromones. | ant
+A tree can release large quantities of water vapor through its leaves. | tree
+Some desert animals avoid heat by remaining underground during the day. | desert
+Dolphins can use signature whistles to identify individuals. | dolphin
+The smallest bones in the human body are inside the middle ear. | bone
+Some snakes can glide between trees. | snake
+A panda's strong jaws help it crush tough bamboo. | panda
+Coral reefs provide shelter for thousands of marine species. | coral
+Some sharks can migrate enormous distances. | shark
+A hummingbird's metabolism is extremely high during active flight. | hummingbird
+Elephants can use their trunks to manipulate very small objects. | elephant
+Some mushrooms release millions of microscopic spores. | mushroom
+Tigers can leap considerable distances while hunting. | tiger
+The Sahara was once much greener than it is today. | sahara
+A frog's tongue can extend rapidly to capture prey. | frog
+Some dolphins live in freshwater environments. | dolphin
+A whale's blowhole is a modified nostril. | whale
+Spiders have multiple pairs of eyes in many species. | spider
+Some penguins build nests using stones. | penguin
+The human skin is the body's largest organ. | skin
+Cheetahs are built more for speed than prolonged combat. | cheetah
+Some ants cultivate fungi as their main food source. | ant
+A giraffe's tongue can be darkly pigmented. | giraffe
+Some clouds form high above the level where most weather occurs. | cloud
+Crocodile eyes have protective membranes that help them see underwater. | crocodile
+Some octopuses can squeeze through extremely narrow openings. | octopus
+A camel's wide feet help it move across soft sand. | camel
+Blue whales can consume several tons of food during heavy feeding periods. | whale
+Some butterflies use camouflage to resemble leaves. | butterfly
+The Earth's tectonic plates move only a few centimeters per year. | earth
+Pandas belong to the bear family. | panda
+A shark's skin is covered with tiny tooth-like structures called denticles. | shark
+Some frogs inflate their bodies to appear larger to predators. | frog
+Beavers are considered ecosystem engineers because they reshape waterways. | beaver
+A dolphin's streamlined body reduces resistance while swimming. | dolphin
+Some bats live in colonies containing millions of individuals. | bat
+Elephants have large ears that help release body heat. | elephant
+A lightning channel can branch into many smaller electrical paths. | lightning
+Some jellyfish species have nearly transparent bodies. | jellyfish
+Tigers generally live alone outside of mothers raising cubs. | tiger
+The human femur is the longest bone in the body. | bone
+Some desert flowers bloom rapidly after rare rainfall. | desert
+Octopuses can release ink to confuse predators. | octopus
+A whale's flukes help generate propulsion through water. | whale
+Some ants can survive flooding by forming floating rafts. | ant
+Giraffes spend much of their day feeding. | giraffe
+A bat's wing is formed from elongated fingers connected by a thin membrane. | bat
+Some spiders actively hunt prey instead of building webs. | spider
+Pine trees can retain needles through multiple growing seasons. | pine
+Polar bears are excellent swimmers. | polarbear
+Some fish use bioluminescent organs to attract prey. | fish
+A cloud can change shape rapidly as wind moves through it. | cloud
+Cheetahs can accelerate very quickly from a standing start. | cheetah
+Pandas can climb trees despite their bulky appearance. | panda
+Some snakes shed their outer skin as they grow. | snake
+The ocean absorbs a substantial amount of atmospheric carbon dioxide. | ocean
+Elephants have highly sensitive feet capable of detecting vibrations. | elephant
+Some flowers open only during nighttime hours. | flower
+A crocodile can use its tail to propel itself through water. | crocodile
+Dolphins can cooperate closely while hunting. | dolphin
+Some mushrooms can break down dead wood. | mushroom
+A hummingbird can enter a low-energy state during cold nights. | hummingbird
+Tigers have individual stripe patterns. | tiger
+Rain can trigger dormant seeds to germinate. | rain
+Some sharks give birth to live young. | shark
+Kangaroos can cover large distances through powerful leaps. | kangaroo
+The human eye contains rods that are especially sensitive in low light. | eye
+Some jellyfish reproduce by releasing reproductive cells into seawater. | jellyfish
+A blue whale's heart is extraordinarily large compared with that of other animals. | whale
+Ants can navigate using chemical trails. | ant
+Some bats pollinate flowers that bloom at night. | bat
+A giraffe's spots have patterns unique to each individual. | giraffe
+Some frogs can change their skin color for camouflage. | frog
+The Earth's magnetic field helps shield the planet from solar particles. | earth
+Octopuses have no internal skeleton. | octopus
+Pandas can consume large quantities of bamboo in a day. | panda
+Some butterflies can see ultraviolet wavelengths. | butterfly
+A camel's eyelashes help protect its eyes from blowing sand. | camel
+Sharks can detect changes in water pressure. | shark
+Some clouds consist mostly of microscopic ice crystals. | cloud
+Elephants can use branches as tools to swat insects. | elephant
+A penguin uses its wings as underwater flippers. | penguin
+Some spiders recycle old webs by eating their silk. | spider
+Whale sharks have distinctive patterns of spots and stripes. | whale_shark
+Some desert rocks develop dark mineral coatings. | desert
+Dolphins can leap completely out of the water. | dolphin
+A lion pride often contains related females. | lion
+Some fungi can survive without sunlight. | fungus
+Tigers have rough tongues covered with tiny structures. | tiger
+Lightning can strike the same location multiple times. | lightning
+A kangaroo's tail helps stabilize its body during movement. | kangaroo
+Some crocodiles swallow stones. | crocodile
+The human kidneys filter waste from the bloodstream. | kidney
+Some bats can fly long distances while searching for food. | bat
+A giraffe can run surprisingly fast despite its long legs. | giraffe
+Some jellyfish have tentacles containing specialized stinging cells. | jellyfish
+The human stomach produces acid that helps digest food. | stomach
+Octopus suckers can provide information about objects they touch. | octopus
+Some sharks must keep moving to maintain water flow across their gills. | shark
+A beaver's front teeth continue growing throughout its life. | beaver
+Some flowers produce scents that attract specific pollinators. | flower
+Cheetah cubs have distinctive coats with long hair along their backs. | cheetah
+The Antarctic is technically the largest desert on Earth. | antarctica
+Some fish can survive temporarily in environments outside normal water conditions. | fish
+A blue whale's heart can weigh hundreds of kilograms. | whale
+Ants can carry objects many times their own body weight. | ant
+Some snakes use constriction to subdue prey. | snake
+Elephants can form strong social bonds within their herds. | elephant
+The human liver can regenerate substantial portions of damaged tissue. | liver
+Some mushrooms appear rapidly after rainfall. | mushroom
+Penguins can drink seawater using specialized salt-removing glands. | penguin
+A cloud's water droplets can be extremely tiny. | cloud
+Tigers can swim across rivers and lakes. | tiger
+Some butterflies mimic toxic species to discourage predators. | butterfly
+A camel can drink a very large amount of water after dehydration. | camel
+Some bats use caves as large communal roosts. | bat
+Dolphins can sleep with one half of their brain at a time. | dolphin
+Some ants keep aphids and collect their sugary secretions. | ant
+The human lungs exchange oxygen and carbon dioxide through alveoli. | lung
+Some frogs lay thousands of eggs at once. | frog
+A crocodile's jaw is exceptionally powerful when closing. | crocodile
+Some sharks can tolerate low-oxygen environments. | shark
+Giraffes have unusually long neck vertebrae. | giraffe
+Some octopuses collect shells or other objects for protection. | octopus
+The Earth's surface is mostly covered by oceans. | earth
+Some flowers use shape and color to guide pollinators. | flower
+A hummingbird can hover in place while feeding. | hummingbird
+Pandas have thick wrist bones that help them grip bamboo. | panda
+Some jellyfish blooms can contain enormous numbers of individuals. | jellyfish
+Whales evolved from land-dwelling ancestors. | whale
+Ant colonies can create complex underground tunnel systems. | ant
+A spider can sense vibrations traveling through its web. | spider
+Some deserts experience freezing temperatures at night. | desert
+Lightning produces thunder because rapidly heated air expands. | lightning
+Cheetahs have large nasal passages that help supply oxygen during sprinting. | cheetah
+Some penguins huddle together to conserve body heat. | penguin
+Elephant calves can weigh more than 100 kilograms at birth. | elephant
+Some snakes can survive long periods without food after a large meal. | snake
+A dolphin's brain is highly developed for processing sounds. | dolphin
+Some fungi produce substances used by humans as medicines. | fungus
+Tigers use scent marking to communicate territorial information. | tiger
+A whale can hold its breath for extended periods during deep dives. | whale
+Some bees regulate hive temperature by fanning their wings. | bee
+A camel's coat can provide insulation from both heat and cold. | camel
+Some sharks have electroreceptors around their heads. | shark
+A cloud can form over a mountain when moist air is forced upward. | cloud
+Some butterflies live only a few weeks as adults. | butterfly
+A kangaroo's young remains protected inside a pouch during early development. | kangaroo
+Octopuses can change their appearance within seconds. | octopus
+Some frogs have adhesive pads that help them climb surfaces. | frog
+Elephants can communicate using very low-frequency sounds. | elephant
+The human brain uses a significant portion of the body's energy. | brain
+Some jellyfish can regenerate damaged body parts. | jellyfish
+A crocodile's mother can carry hatchlings gently in her mouth. | crocodile
+Some bats reduce their body temperature while resting. | bat
+Giraffes use their long tongues to reach leaves. | giraffe
+The ocean floor contains vast underwater volcanic structures. | ocean
+Some ants specialize in defending their colony. | ant
+Tigers have excellent night vision compared with humans. | tiger
+Some mushrooms grow on decaying tree trunks. | mushroom
+A blue whale's vocalizations can travel long distances underwater. | whale
+Lightning can occur during snowstorms. | lightning
+Some desert plants have roots that spread widely near the surface. | desert
+A hummingbird's heart can beat extremely rapidly during active flight. | hummingbird
+Pandas have black-and-white coloration that may help with camouflage. | panda
+Some spiders have highly developed vision for their size. | spider
+Dolphins can use clicks to investigate objects. | dolphin
+The human skull protects the brain from physical injury. | skull
+Some snakes can climb trees efficiently. | snake
+Elephants can use their trunks for smelling and touching. | elephant
+Coral skeletons are mainly composed of calcium carbonate. | coral
+Some shark species lay protective egg cases. | shark
+Cheetahs use their long tails as steering devices. | cheetah
+Some butterflies have wing patterns that resemble eyes. | butterfly
+A camel's nostrils can narrow during sandstorms. | camel
+Penguin feathers are densely packed for insulation. | penguin
+Some octopuses mimic the appearance of other marine animals. | octopus
+Rainfall can transport nutrients through forest ecosystems. | rain
+Giraffes can sleep for very short periods at a time. | giraffe
+Some bats use fruit as their main food source. | bat
+Ants can communicate through touch as well as chemical signals. | ant
+A crocodile can survive long periods without eating. | crocodile
+Some jellyfish use ocean currents to travel long distances. | jellyfish
+The human liver produces bile for digestion. | liver
+Some clouds form in long horizontal bands. | cloud
+Tigers can use their whiskers to sense nearby objects. | tiger
+A whale shark feeds primarily by filtering food from water. | whale_shark
+Some desert ecosystems receive most of their annual rainfall in short bursts. | desert
+Elephants can use their trunks to spray water over their bodies. | elephant
+Some fungi live inside plant tissues without immediately harming them. | fungus
+A frog's eyes can help push food toward its throat during swallowing. | frog
+Some sharks replace thousands of teeth during their lives. | shark
+Butterflies begin life as caterpillars. | butterfly
+A dolphin mother can remain closely associated with her calf for years. | dolphin
+Some penguins can slide across ice on their bellies. | penguin
+Octopus blood appears blue because it uses a copper-based oxygen carrier. | octopus
+Some ants can survive falls from considerable heights because of their small size. | ant
+The human small intestine is several meters long. | intestine
+A camel's body can tolerate substantial fluctuations in water levels. | camel
+Some spiders build elaborate orb-shaped webs. | spider
+Cheetahs have relatively small heads compared with their bodies. | cheetah
+Whales can communicate using complex sounds. | whale
+Some flowers generate heat to attract pollinators. | flower
+A cloud can reflect sunlight back toward space. | cloud
+Elephants can spend many hours feeding each day. | elephant
+Some snakes use their forked tongues to collect chemical information. | snake
+Pandas have powerful molars adapted for grinding bamboo. | panda
+Some jellyfish have no brain or heart. | jellyfish
+Lightning can create branching patterns on surfaces it strikes. | lightning
+Giraffe calves are born with relatively long legs. | giraffe
+Some bats can navigate around obstacles using echolocation. | bat
+A crocodile can regulate its body temperature by changing its position. | crocodile
+Some sharks have eyes protected by special membranes. | shark
+Tigers can detect movement in dim conditions. | tiger
+Ant colonies can have specialized workers performing different tasks. | ant
+Some mushrooms can decompose tough plant material. | mushroom
+The human blood circulation system contains an enormous network of vessels. | blood
+Dolphins can form cooperative hunting groups. | dolphin
+Some desert plants store water in specialized tissues. | cactus
