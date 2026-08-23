@@ -11,12 +11,15 @@
         "Some desert flowers bloom rapidly after rare rainfall.": "2026-08-21T08:06:47.974836",
         "Butterflies taste using receptors located on their feet.": "2026-08-22T04:29:39.490123",
         "Cheetahs can accelerate very quickly from a standing start.": "2026-08-22T04:29:41.141100",
-        "Some flowers produce scents that attract specific pollinators.": "2026-08-22T04:29:43.038916"
+        "Some flowers produce scents that attract specific pollinators.": "2026-08-22T04:29:43.038916",
+        "A dolphin's brain is highly developed for processing sounds.": "2026-08-23T04:34:08.935151",
+        "Clouds can form when moist air cools enough for water vapor to condense.": "2026-08-23T04:34:13.014929",
+        "Cheetahs have semi-retractable claws that help provide traction.": "2026-08-23T04:34:15.283995"
     },
-    "last_voice": "female",
+    "last_voice": "male",
     "used_metadata": {
         "titles": {
-            "Did you know this amazing fact? \ud83e\udd2f": "2026-08-22T04:30:51.337570",
+            "Did you know this amazing fact? \ud83e\udd2f": "2026-08-23T04:35:17.071284",
             "Mind blowing facts you never knew! \ud83c\udf0d": "2026-08-21T07:27:26.989788",
             "This will change how you see the world! \ud83d\udc40": "2026-08-21T08:07:31.046446"
         },
@@ -24,19 +27,22 @@
             "#sciencefacts #facebookvideo #learnontiktok #amazingfacts #worldfacts": "2026-08-20T14:46:53.008274",
             "#facts #facebookreels #dailyfacts #knowledge #viral": "2026-08-21T07:27:26.989911",
             "#factz #dailyknowledge #fbshorts #trendingnow #didyouknowfacts": "2026-08-21T08:07:31.046556",
-            "#mindblowingfacts #fbreels #factoftheday #didyouknow #interesting": "2026-08-22T04:30:51.337684"
+            "#mindblowingfacts #fbreels #factoftheday #didyouknow #interesting": "2026-08-22T04:30:51.337684",
+            "#facts #facebook": "2026-08-23T04:35:17.071401"
         },
         "instagram": {
             "#reelsinstagram #dailyknowledge #funfacts #factz #explore": "2026-08-20T14:46:53.008327",
             "#factoftheday #instagramreels #viralvideos #educational #fact": "2026-08-21T07:27:26.989964",
             "#instareels #factsdaily #explorepage #trending #mindblown": "2026-08-21T08:07:31.046592",
-            "#instafacts #reelsviral #didyouknow #knowledgeispower #amazing": "2026-08-22T04:30:51.337717"
+            "#instafacts #reelsviral #didyouknow #knowledgeispower #amazing": "2026-08-22T04:30:51.337717",
+            "#instafacts #reels": "2026-08-23T04:35:17.071456"
         },
         "youtube": {
             "#viral #trending #youtube #factsdaily #mindblowing": "2026-08-20T14:46:53.008373",
             "#shorts #youtubeshorts #factshorts #viralshorts #education": "2026-08-21T07:27:26.990010",
             "#shortsvideo #factsvideo #dailyfacts #didyouknow #shortsindia": "2026-08-21T08:07:31.046623",
-            "#ytshorts #facts #amazingfacts #shortsfeed #knowledge": "2026-08-22T04:30:51.337737"
+            "#ytshorts #facts #amazingfacts #shortsfeed #knowledge": "2026-08-22T04:30:51.337737",
+            "#shorts #youtubeshorts": "2026-08-23T04:35:17.071502"
         }
     }
 }
