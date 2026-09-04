@@ -47,12 +47,15 @@
         "A sea otter can use stones as tools to break open hard food.": "2026-09-02T08:23:03.091208",
         "Some dolphins live in freshwater environments.": "2026-09-03T08:31:47.597999",
         "Tigers can detect movement in dim conditions.": "2026-09-03T08:31:49.670211",
-        "Some sharks replace thousands of teeth during their lives.": "2026-09-03T08:31:50.910160"
+        "Some sharks replace thousands of teeth during their lives.": "2026-09-03T08:31:50.910160",
+        "Lightning can strike the same location multiple times.": "2026-09-04T08:27:51.224931",
+        "The human brain contains billions of neurons.": "2026-09-04T08:28:02.920443",
+        "Some jellyfish have tentacles containing specialized stinging cells.": "2026-09-04T08:28:14.323924"
     },
-    "last_voice": "female",
+    "last_voice": "male",
     "used_metadata": {
         "titles": {
-            "Did you know this amazing fact? \ud83e\udd2f": "2026-09-03T08:32:47.001177",
+            "Did you know this amazing fact? \ud83e\udd2f": "2026-09-04T08:28:59.819990",
             "Mind blowing facts you never knew! \ud83c\udf0d": "2026-08-21T07:27:26.989788",
             "This will change how you see the world! \ud83d\udc40": "2026-08-21T08:07:31.046446"
         },
@@ -61,21 +64,21 @@
             "#facts #facebookreels #dailyfacts #knowledge #viral": "2026-08-21T07:27:26.989911",
             "#factz #dailyknowledge #fbshorts #trendingnow #didyouknowfacts": "2026-08-21T08:07:31.046556",
             "#mindblowingfacts #fbreels #factoftheday #didyouknow #interesting": "2026-08-22T04:30:51.337684",
-            "#facts #facebook": "2026-09-03T08:32:47.001296"
+            "#facts #facebook": "2026-09-04T08:28:59.820111"
         },
         "instagram": {
             "#reelsinstagram #dailyknowledge #funfacts #factz #explore": "2026-08-20T14:46:53.008327",
             "#factoftheday #instagramreels #viralvideos #educational #fact": "2026-08-21T07:27:26.989964",
             "#instareels #factsdaily #explorepage #trending #mindblown": "2026-08-21T08:07:31.046592",
             "#instafacts #reelsviral #didyouknow #knowledgeispower #amazing": "2026-08-22T04:30:51.337717",
-            "#instafacts #reels": "2026-09-03T08:32:47.001350"
+            "#instafacts #reels": "2026-09-04T08:28:59.820164"
         },
         "youtube": {
             "#viral #trending #youtube #factsdaily #mindblowing": "2026-08-20T14:46:53.008373",
             "#shorts #youtubeshorts #factshorts #viralshorts #education": "2026-08-21T07:27:26.990010",
             "#shortsvideo #factsvideo #dailyfacts #didyouknow #shortsindia": "2026-08-21T08:07:31.046623",
             "#ytshorts #facts #amazingfacts #shortsfeed #knowledge": "2026-08-22T04:30:51.337737",
-            "#shorts #youtubeshorts": "2026-09-03T08:32:47.001397"
+            "#shorts #youtubeshorts": "2026-09-04T08:28:59.820213"
         }
     }
 }
