@@ -19,7 +19,7 @@ TELEGRAM_CHAT_ID = os.environ.get('TELEGRAM_CHAT_ID')
 WEBHOOK_URL = os.environ.get('WEBHOOK_URL')
 
 AUTOMATION_NAME = "Premium Fact Shorts Auto-Gen"
-SOCIAL_MEDIA_NAME = "Facebook, Instagram, YouTube"
+SOCIAL_MEDIA_NAME = "The Interesting Fact"
 
 # --- STATE MANAGEMENT (Cooling System for Facts & Metadata) ---
 def load_state(filepath="state.json"):
