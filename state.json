@@ -125,12 +125,15 @@
         "A lightning channel can branch into many smaller electrical paths.": "2026-09-27T09:47:55.719737",
         "The human liver can regenerate substantial portions of damaged tissue.": "2026-09-28T10:31:09.360700",
         "Tigers can use their whiskers to sense nearby objects.": "2026-09-28T10:31:11.244249",
-        "A mantis shrimp can strike with extraordinary acceleration.": "2026-09-28T10:31:13.363871"
+        "A mantis shrimp can strike with extraordinary acceleration.": "2026-09-28T10:31:13.363871",
+        "Some snakes can climb trees efficiently.": "2026-09-29T10:23:30.814737",
+        "Some mushrooms can break down dead wood.": "2026-09-29T10:23:33.948051",
+        "The Earth's magnetic field helps shield the planet from solar particles.": "2026-09-29T10:23:36.688155"
     },
-    "last_voice": "female",
+    "last_voice": "male",
     "used_metadata": {
         "titles": {
-            "Did you know this amazing fact? \ud83e\udd2f": "2026-09-28T10:32:29.577192",
+            "Did you know this amazing fact? \ud83e\udd2f": "2026-09-29T10:24:37.822954",
             "Mind blowing facts you never knew! \ud83c\udf0d": "2026-09-20T09:03:32.092148",
             "This will change how you see the world! \ud83d\udc40": "2026-09-21T09:35:53.425614"
         },
@@ -139,21 +142,21 @@
             "#facts #facebookreels #dailyfacts #knowledge #viral": "2026-09-21T09:35:53.425726",
             "#factz #dailyknowledge #fbshorts #trendingnow #didyouknowfacts": "2026-09-20T09:03:32.092269",
             "#mindblowingfacts #fbreels #factoftheday #didyouknow #interesting": "2026-09-22T09:00:44.714148",
-            "#facts #facebook": "2026-09-28T10:32:29.577307"
+            "#facts #facebook": "2026-09-29T10:24:37.823068"
         },
         "instagram": {
             "#reelsinstagram #dailyknowledge #funfacts #factz #explore": "2026-09-20T09:03:32.092324",
             "#factoftheday #instagramreels #viralvideos #educational #fact": "2026-09-23T09:03:40.078147",
             "#instareels #factsdaily #explorepage #trending #mindblown": "2026-09-21T09:35:53.425766",
             "#instafacts #reelsviral #didyouknow #knowledgeispower #amazing": "2026-09-22T09:00:44.714209",
-            "#instafacts #reels": "2026-09-28T10:32:29.577359"
+            "#instafacts #reels": "2026-09-29T10:24:37.823121"
         },
         "youtube": {
             "#viral #trending #youtube #factsdaily #mindblowing": "2026-09-21T09:35:53.425800",
             "#shorts #youtubeshorts #factshorts #viralshorts #education": "2026-09-22T09:00:44.714261",
             "#shortsvideo #factsvideo #dailyfacts #didyouknow #shortsindia": "2026-09-20T09:03:32.092375",
             "#ytshorts #facts #amazingfacts #shortsfeed #knowledge": "2026-09-23T09:03:40.078198",
-            "#shorts #youtubeshorts": "2026-09-28T10:32:29.577405"
+            "#shorts #youtubeshorts": "2026-09-29T10:24:37.823169"
         }
     }
 }
