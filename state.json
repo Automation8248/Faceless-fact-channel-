@@ -167,12 +167,15 @@
         "A lion pride often contains related females.": "2026-10-11T10:35:08.430272",
         "A penguin uses its wings as underwater flippers.": "2026-10-14T09:16:07.191313",
         "Some butterflies have wing patterns that resemble eyes.": "2026-10-14T09:16:12.033671",
-        "A spider can sense vibrations traveling through its web.": "2026-10-14T09:16:17.958825"
+        "A spider can sense vibrations traveling through its web.": "2026-10-14T09:16:17.958825",
+        "Some flowers produce ultraviolet patterns that guide insects toward nectar.": "2026-10-15T08:49:08.461500",
+        "Giraffes spend much of their day feeding.": "2026-10-15T08:49:09.614041",
+        "A frog's eyes can help push food toward its throat during swallowing.": "2026-10-15T08:49:13.231915"
     },
-    "last_voice": "female",
+    "last_voice": "male",
     "used_metadata": {
         "titles": {
-            "Did you know this amazing fact? \ud83e\udd2f": "2026-10-14T09:16:51.809714",
+            "Did you know this amazing fact? \ud83e\udd2f": "2026-10-15T08:50:12.195690",
             "Mind blowing facts you never knew! \ud83c\udf0d": "2026-09-20T09:03:32.092148",
             "This will change how you see the world! \ud83d\udc40": "2026-09-21T09:35:53.425614"
         },
@@ -181,21 +184,21 @@
             "#facts #facebookreels #dailyfacts #knowledge #viral": "2026-09-21T09:35:53.425726",
             "#factz #dailyknowledge #fbshorts #trendingnow #didyouknowfacts": "2026-09-20T09:03:32.092269",
             "#mindblowingfacts #fbreels #factoftheday #didyouknow #interesting": "2026-09-22T09:00:44.714148",
-            "#facts #facebook": "2026-10-14T09:16:51.809820"
+            "#facts #facebook": "2026-10-15T08:50:12.195815"
         },
         "instagram": {
             "#reelsinstagram #dailyknowledge #funfacts #factz #explore": "2026-09-20T09:03:32.092324",
             "#factoftheday #instagramreels #viralvideos #educational #fact": "2026-09-23T09:03:40.078147",
             "#instareels #factsdaily #explorepage #trending #mindblown": "2026-09-21T09:35:53.425766",
             "#instafacts #reelsviral #didyouknow #knowledgeispower #amazing": "2026-09-22T09:00:44.714209",
-            "#instafacts #reels": "2026-10-14T09:16:51.809848"
+            "#instafacts #reels": "2026-10-15T08:50:12.195847"
         },
         "youtube": {
             "#viral #trending #youtube #factsdaily #mindblowing": "2026-09-21T09:35:53.425800",
             "#shorts #youtubeshorts #factshorts #viralshorts #education": "2026-09-22T09:00:44.714261",
             "#shortsvideo #factsvideo #dailyfacts #didyouknow #shortsindia": "2026-09-20T09:03:32.092375",
             "#ytshorts #facts #amazingfacts #shortsfeed #knowledge": "2026-09-23T09:03:40.078198",
-            "#shorts #youtubeshorts": "2026-10-14T09:16:51.809872"
+            "#shorts #youtubeshorts": "2026-10-15T08:50:12.195873"
         }
     }
 }
