@@ -179,12 +179,15 @@
         "The human heart has four chambers.": "2026-10-17T08:14:48.505192",
         "Some jellyfish can glow through bioluminescence.": "2026-10-18T08:31:46.864091",
         "Coral skeletons are mainly composed of calcium carbonate.": "2026-10-18T08:31:52.794620",
-        "Some sharks must keep moving to maintain water flow across their gills.": "2026-10-18T08:31:58.027605"
+        "Some sharks must keep moving to maintain water flow across their gills.": "2026-10-18T08:31:58.027605",
+        "A blue whale's vocalizations can travel long distances underwater.": "2026-10-19T09:34:27.645802",
+        "Some penguins can remain underwater for several minutes.": "2026-10-19T09:34:38.087943",
+        "Some frogs can survive being partially frozen.": "2026-10-19T09:34:47.416964"
     },
-    "last_voice": "female",
+    "last_voice": "male",
     "used_metadata": {
         "titles": {
-            "Did you know this amazing fact? \ud83e\udd2f": "2026-10-18T08:33:03.560592",
+            "Did you know this amazing fact? \ud83e\udd2f": "2026-10-19T09:36:04.548633",
             "Mind blowing facts you never knew! \ud83c\udf0d": "2026-09-20T09:03:32.092148",
             "This will change how you see the world! \ud83d\udc40": "2026-09-21T09:35:53.425614"
         },
@@ -193,21 +196,21 @@
             "#facts #facebookreels #dailyfacts #knowledge #viral": "2026-09-21T09:35:53.425726",
             "#factz #dailyknowledge #fbshorts #trendingnow #didyouknowfacts": "2026-09-20T09:03:32.092269",
             "#mindblowingfacts #fbreels #factoftheday #didyouknow #interesting": "2026-09-22T09:00:44.714148",
-            "#facts #facebook": "2026-10-18T08:33:03.560698"
+            "#facts #facebook": "2026-10-19T09:36:04.548756"
         },
         "instagram": {
             "#reelsinstagram #dailyknowledge #funfacts #factz #explore": "2026-09-20T09:03:32.092324",
             "#factoftheday #instagramreels #viralvideos #educational #fact": "2026-09-23T09:03:40.078147",
             "#instareels #factsdaily #explorepage #trending #mindblown": "2026-09-21T09:35:53.425766",
             "#instafacts #reelsviral #didyouknow #knowledgeispower #amazing": "2026-09-22T09:00:44.714209",
-            "#instafacts #reels": "2026-10-18T08:33:03.560751"
+            "#instafacts #reels": "2026-10-19T09:36:04.548784"
         },
         "youtube": {
             "#viral #trending #youtube #factsdaily #mindblowing": "2026-09-21T09:35:53.425800",
             "#shorts #youtubeshorts #factshorts #viralshorts #education": "2026-09-22T09:00:44.714261",
             "#shortsvideo #factsvideo #dailyfacts #didyouknow #shortsindia": "2026-09-20T09:03:32.092375",
             "#ytshorts #facts #amazingfacts #shortsfeed #knowledge": "2026-09-23T09:03:40.078198",
-            "#shorts #youtubeshorts": "2026-10-18T08:33:03.560797"
+            "#shorts #youtubeshorts": "2026-10-19T09:36:04.548808"
         }
     }
 }
