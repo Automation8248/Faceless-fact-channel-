@@ -209,12 +209,15 @@
         "Some desert plants store water in specialized tissues.": "2026-10-31T10:10:54.760533",
         "Some mushrooms produce light through bioluminescence.": "2026-11-01T11:00:49.305162",
         "Horseshoe crabs have blue blood.": "2026-11-01T11:01:05.087460",
-        "Some lizards can detach their tails to escape predators.": "2026-11-01T11:01:16.381034"
+        "Some lizards can detach their tails to escape predators.": "2026-11-01T11:01:16.381034",
+        "A camel's wide feet help it move across soft sand.": "2026-11-02T11:59:16.172737",
+        "A crocodile can remain motionless for long periods while waiting for prey.": "2026-11-02T11:59:28.978811",
+        "Some sharks have electroreceptors around their heads.": "2026-11-02T11:59:40.025066"
     },
-    "last_voice": "female",
+    "last_voice": "male",
     "used_metadata": {
         "titles": {
-            "Did you know this amazing fact? \ud83e\udd2f": "2026-11-01T11:02:37.238773",
+            "Did you know this amazing fact? \ud83e\udd2f": "2026-11-02T12:00:50.700542",
             "Mind blowing facts you never knew! \ud83c\udf0d": "2026-10-20T09:07:39.990335",
             "This will change how you see the world! \ud83d\udc40": "2026-10-22T09:10:00.979228"
         },
@@ -223,21 +226,21 @@
             "#facts #facebookreels #dailyfacts #knowledge #viral": "2026-10-25T08:57:30.974752",
             "#factz #dailyknowledge #fbshorts #trendingnow #didyouknowfacts": "2026-10-20T09:07:39.990431",
             "#mindblowingfacts #fbreels #factoftheday #didyouknow #interesting": "2026-10-22T09:10:00.979322",
-            "#facts #facebook": "2026-11-01T11:02:37.238902"
+            "#facts #facebook": "2026-11-02T12:00:50.700664"
         },
         "instagram": {
             "#reelsinstagram #dailyknowledge #funfacts #factz #explore": "2026-10-20T09:07:39.990462",
             "#factoftheday #instagramreels #viralvideos #educational #fact": "2026-10-25T08:57:30.974812",
             "#instareels #factsdaily #explorepage #trending #mindblown": "2026-10-22T09:10:00.979376",
             "#instafacts #reelsviral #didyouknow #knowledgeispower #amazing": "2026-10-23T09:06:46.050275",
-            "#instafacts #reels": "2026-11-01T11:02:37.238945"
+            "#instafacts #reels": "2026-11-02T12:00:50.700715"
         },
         "youtube": {
             "#viral #trending #youtube #factsdaily #mindblowing": "2026-10-23T09:06:46.050325",
             "#shorts #youtubeshorts #factshorts #viralshorts #education": "2026-10-22T09:10:00.979425",
             "#shortsvideo #factsvideo #dailyfacts #didyouknow #shortsindia": "2026-10-20T09:07:39.990487",
             "#ytshorts #facts #amazingfacts #shortsfeed #knowledge": "2026-10-25T08:57:30.974887",
-            "#shorts #youtubeshorts": "2026-11-01T11:02:37.238979"
+            "#shorts #youtubeshorts": "2026-11-02T12:00:50.700761"
         }
     }
 }
