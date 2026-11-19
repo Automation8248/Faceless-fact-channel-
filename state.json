@@ -245,24 +245,27 @@
         "Cheetahs use their long tails as steering devices.": "2026-11-15T11:44:49.318586",
         "A blue whale can produce extremely powerful low-frequency sounds.": "2026-11-18T12:37:58.126642",
         "A hummingbird's heart can beat extremely rapidly during active flight.": "2026-11-18T12:38:07.225946",
-        "A hummingbird can fly backward.": "2026-11-18T12:38:25.148059"
+        "A hummingbird can fly backward.": "2026-11-18T12:38:25.148059",
+        "Some flowers open only during nighttime hours.": "2026-11-19T12:28:52.131197",
+        "A crocodile can use its tail to propel itself through water.": "2026-11-19T12:29:15.078822",
+        "Some fungi live inside plant tissues without immediately harming them.": "2026-11-19T12:29:26.661325"
     },
-    "last_voice": "female",
+    "last_voice": "male",
     "used_metadata": {
         "titles": {
             "Did you know this amazing fact? \ud83e\udd2f": "2026-11-18T12:39:00.009572",
-            "Mind blowing facts you never knew! \ud83c\udf0d": "2026-10-20T09:07:39.990335",
+            "Mind blowing facts you never knew! \ud83c\udf0d": "2026-11-19T12:30:49.416172",
             "This will change how you see the world! \ud83d\udc40": "2026-10-22T09:10:00.979228"
         },
         "facebook": {
             "#sciencefacts #facebookvideo #learnontiktok #amazingfacts #worldfacts": "2026-10-23T09:06:46.050212",
             "#facts #facebookreels #dailyfacts #knowledge #viral": "2026-10-25T08:57:30.974752",
-            "#factz #dailyknowledge #fbshorts #trendingnow #didyouknowfacts": "2026-10-20T09:07:39.990431",
+            "#factz #dailyknowledge #fbshorts #trendingnow #didyouknowfacts": "2026-11-19T12:30:49.416308",
             "#mindblowingfacts #fbreels #factoftheday #didyouknow #interesting": "2026-10-22T09:10:00.979322",
             "#facts #facebook": "2026-11-18T12:39:00.009645"
         },
         "instagram": {
-            "#reelsinstagram #dailyknowledge #funfacts #factz #explore": "2026-10-20T09:07:39.990462",
+            "#reelsinstagram #dailyknowledge #funfacts #factz #explore": "2026-11-19T12:30:49.416346",
             "#factoftheday #instagramreels #viralvideos #educational #fact": "2026-10-25T08:57:30.974812",
             "#instareels #factsdaily #explorepage #trending #mindblown": "2026-10-22T09:10:00.979376",
             "#instafacts #reelsviral #didyouknow #knowledgeispower #amazing": "2026-10-23T09:06:46.050275",
@@ -271,7 +274,7 @@
         "youtube": {
             "#viral #trending #youtube #factsdaily #mindblowing": "2026-10-23T09:06:46.050325",
             "#shorts #youtubeshorts #factshorts #viralshorts #education": "2026-10-22T09:10:00.979425",
-            "#shortsvideo #factsvideo #dailyfacts #didyouknow #shortsindia": "2026-10-20T09:07:39.990487",
+            "#shortsvideo #factsvideo #dailyfacts #didyouknow #shortsindia": "2026-11-19T12:30:49.416373",
             "#ytshorts #facts #amazingfacts #shortsfeed #knowledge": "2026-10-25T08:57:30.974887",
             "#shorts #youtubeshorts": "2026-11-18T12:39:00.009694"
         }
